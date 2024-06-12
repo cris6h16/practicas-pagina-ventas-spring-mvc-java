@@ -36,6 +36,19 @@ public class Venta {
             targetEntity = Factura.class,
             optional = true
     )
+    @JoinColumn(
+            name = "factura_id",
+            foreignKey = @ForeignKey(name = "factura_id_fk")
+    )
     private Factura factura;
+
+
+    @ManyToOne(
+            fetch = FetchType.EAGER,
+            cascade = {},
+            targetEntity = Producto.class,
+            optional = true
+    )
+    private Producto producto;
 
 }

@@ -40,17 +40,17 @@ public class Factura {
                     CascadeType.REFRESH
             },
             targetEntity = Usuario.class,
-            optional = true
-    )
-    @JoinColumn(name = "usuario_id", foreignKey = @ForeignKey(name = "usuario_id_fk"))
+            optional = true)
+    @JoinColumn(
+            name = "usuario_id",
+            foreignKey = @ForeignKey(name = "usuario_id_fk"))
     private Usuario usuario;
 
     @OneToMany(
             mappedBy = "factura",
             fetch = FetchType.EAGER,
             cascade = CascadeType.ALL,
-            targetEntity = Venta.class,
-            orphanRemoval = true
-    )
+            targetEntity = Venta.class)
     private Set<Venta> ventas;
+
 }

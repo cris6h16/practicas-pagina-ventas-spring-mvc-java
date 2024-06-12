@@ -3,7 +3,7 @@ spring:
     name: PracticasAplicacion
 
   datasource:
-    url: jdbc:postgresql://localhost:5432/practicas
+    url: jdbc:postgresql://localhost:5432/practicas_tienda
     driver-class-name: org.postgresql.Driver
     username: ${PSQL_USER}
     password: ${PSQL_PASS}
