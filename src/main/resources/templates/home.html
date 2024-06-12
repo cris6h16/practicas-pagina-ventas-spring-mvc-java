@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <title>Landarea - Ginseng Grafted Ficus</title>
+
+    <script>
+        function mostrarGalley() {
+            ocultarTodo();
+            document.getElementById('gallery-header').classList.remove('d-none');
+            document.getElementById('gallery-section').classList.remove('d-none');
+        }
+
+        function mostrarFeatures() {
+            ocultarTodo();
+            document.getElementById('features-header').classList.remove('d-none');
+            document.getElementById('features-section').classList.remove('d-none');
+        }
+
+        function mostrarReviews() {
+            ocultarTodo();
+            document.getElementById('reviews-header').classList.remove('d-none');
+            document.getElementById('reviews-section').classList.remove('d-none');
+        }
+
+        function mostrarMultimedia() {
+            ocultarTodo();
+            document.getElementById('multimedia-header').classList.remove('d-none');
+            document.getElementById('multimedia-section').classList.remove('d-none');
+        }
+
+        function ocultarTodo() {
+            document.getElementById('gallery-header').classList.add('d-none');
+            document.getElementById('gallery-section').classList.add('d-none');
+
+            document.getElementById('features-header').classList.add('d-none');
+            document.getElementById('features-section').classList.add('d-none');
+
+            document.getElementById('reviews-header').classList.add('d-none');
+            document.getElementById('reviews-section').classList.add('d-none');
+
+            document.getElementById('multimedia-header').classList.add('d-none');
+            document.getElementById('multimedia-section').classList.add('d-none');
+        }
+    </script>
+</head>
+
+<body class="bg-light">
+
+<nav class="navbar navbar-dark bg-success">
+    <div class="container d-flex justify-content-between">
+        <div class="in-left-side">
+            <input type="text" class="input-in-nav form-control">
+        </div>
+        <div class="in-right-side d-flex gap-2 align-items-center">
+            <a th:href="@{/login}"><img src="img/user.png" class="logo-user"></a>
+            <input type="text" class="input-in-nav-3 form-control form-control-sm">
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <ul class="nav justify-content-end">
+        <li class="nav-item">
+            <a class="nav-link" href="#" onclick="mostrarMultimedia()">Multimedia</a>
+        <li class="nav-item">
+            <a class="nav-link" href="#" onclick="mostrarGalley()">Gallery</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#" onclick="mostrarFeatures()">Features</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" onclick="mostrarReviews()" aria->Reviews</a>
+        </li>
+    </ul>
+</div>
+
+<header class="container my-5" id="gallery-header">
+
+    <!--  primera -->
+    <div class="row align-items-center">
+        <div class="col-md-6 text-center">
+            <img src="img/arbol.jpeg" class="img-fluid" alt="Ginseng Grafted Ficus">
+            <p class="mt-3">$40.00</p>
+        </div>
+        <div class="col-md-6">
+            <h1 class="display-4">Ginseng Grafted Ficus</h1>
+            <p class="lead"><strong>Ginseng Grafted Ficus trees embody strength, soothes mind, clears the
+                air.</strong></p>
+            <p>It's one of the most loved bonsai trees for many reasons. If you begin your journey with bonsai
+                trees, this one can be excellent for you. Ficus are fast growers, they are tolerant of most any soil
+                and light conditions. And probably most important, they are not difficult in watering, which makes
+                them perfect to improve your bonsai watering skills. It's a great start for an indoor Bonsai Garden.
+            </p>
+            <div class="d-flex gap-3">
+                <button class="btn btn-outline-dark">Learn More</button>
+                <button class="btn btn-dark">Buy Now!</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- segundaa -->
+    <div class="row align-items-center mt-5">
+        <div class="col-md-6">
+            <h1 class="display-4">Ginseng Grafted Ficus</h1>
+            <p class="lead"><strong>Ginseng Grafted Ficus trees embody strength, soothes mind, clears the
+                air.</strong></p>
+            <p>It's one of the most loved bonsai trees for many reasons. If you begin your journey with bonsai
+                trees, this one can be excellent for you. Ficus are fast growers, they are tolerant of most any soil
+                and light conditions. And probably most important, they are not difficult in watering, which makes
+                them perfect to improve your bonsai watering skills. It's a great start for an indoor Bonsai Garden.
+            </p>
+            <div class="d-flex gap-3">
+                <button class="btn btn-outline-dark">Learn More</button>
+                <button class="btn btn-dark">Buy Now!</button>
+            </div>
+        </div>
+        <div class="col-md-6 text-center">
+            <img src="img/arbol.jpeg" class="img-fluid" alt="Ginseng Grafted Ficus">
+            <p class="mt-3">$40.00</p>
+        </div>
+    </div>
+
+
+    <!-- tercera -->
+    <div class="row align-items-center mt-5">
+        <div class="col-md-6 text-center">
+            <img src="img/arbol.jpeg" class="img-fluid" alt="Ginseng Grafted Ficus">
+            <p class="mt-3">$40.00</p>
+        </div>
+        <div class="col-md-6">
+            <h1 class="display-4">Ginseng Grafted Ficus</h1>
+            <p class="lead"><strong>Ginseng Grafted Ficus trees embody strength, soothes mind, clears the
+                air.</strong></p>
+            <p>It's one of the most loved bonsai trees for many reasons. If you begin your journey with bonsai
+                trees, this one can be excellent for you. Ficus are fast growers, they are tolerant of most any soil
+                and light conditions. And probably most important, they are not difficult in watering, which makes
+                them perfect to improve your bonsai watering skills. It's a great start for an indoor Bonsai Garden.
+            </p>
+            <div class="d-flex gap 3">
+                <button class="btn btn-outline-dark">Learn More</button>
+                <button class="btn btn-dark">Buy Now!</button>
+            </div>
+
+        </div>
+    </div>
+</header>
+
+
+<section class="bg-white py-5 " id="gallery-section">
+    <div class="container text-center">
+        <h2>Why This Tree?</h2>
+        <div class="row mt-4">
+            <div class="col-md-3">
+                <img src="https://static.vecteezy.com/system/resources/previews/020/967/303/non_2x/drop-of-water-free-png.png"
+                     class="mb-3" alt="Easy Watering">
+                <p>Easy Watering</p>
+            </div>
+            <div class="col-md-3">
+                <img src="https://cdn3.iconfinder.com/data/icons/linecons-free-vector-icons-pack/32/trash-512.png"
+                     class="mb-3" alt="Tolerant of most soils and Lightening Levels">
+                <p>Tolerant of most soils and Lightening Levels</p>
+            </div>
+            <div class="col-md-3">
+                <img src="https://static.thenounproject.com/png/2965972-200.png" class="mb-3"
+                     alt="Great for Indoor Growing">
+                <p>Great for Indoor Growing</p>
+            </div>
+            <div class="col-md-3">
+                <img src="https://www.shareicon.net/data/2016/04/12/748609_plant_512x512.png" class="mb-3"
+                     alt="Fast Growth">
+                <p>Fast Growth</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<header class="container my-5 d-none" id="features-header">
+    <div class="row align-items-center">
+        <div class="col-md-6">
+            <h1 class="display-4">Features</h1>
+            <p class="lead">Ginseng Grafted Ficus trees embody strength, soothes mind, clears the air.</p>
+            <p>
+                Texto relacionado a Features
+            </p>
+        </div>
+        <!-- <div class="col-md-6 text-center">
+            <img src="img/arbol.jpeg" class="img-fluid" alt="Ginseng Grafted Ficus">
+            <p class="mt-3">$40.00</p>
+        </div> -->
+    </div>
+</header>
+
+<section class="bg-white py-5 d-none" id="features-section">
+    <div class="container text-center">
+        <h2>Features content</h2>
+        <p>
+            Texto relacionado a Features en section
+        </p>
+    </div>
+</section>
+
+
+<header class="container my-5 d-none" id="reviews-header">
+    <div class="row align-items-center">
+        <div class="col-md-6 text-center">
+        </div>
+        <div class="col-md-6">
+            <h1 class="display-4">Reviews Section Title</h1>
+            <p>
+                texto relacionado a Reviews en header
+            </p>
+            </p>
+        </div>
+    </div>
+</header>
+
+<section class="bg-white py-5 d-none" id="reviews-section">
+    <div class="container text-center">
+        esta es una review
+    </div>
+</section>
+
+<header class="container my-5 d-none" id="multimedia-header">
+    Multimedia
+</header>
+
+<section class="bg-white py-5 d-none container " id="multimedia-section">
+  <span class="v1">
+    <video width="500" height="255" controls>
+      <source src="video/DesignPatterns/builder.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+      <video width="500" height="255" controls>
+      <source src="video/DesignPatterns/ChainOfResponsibility.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+
+      </video>
+      <video width="500" height="255" controls>
+      <source src="video/DesignPatterns/facade.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+
+      <video width="500" height="255" controls>
+      <source src="video/DesignPatterns/prototype.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+
+      <video width="500" height="255" controls>
+      <source src="video/DesignPatterns/singleton.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+
+      <video width="500" height="255" controls>
+      <source src="video/DesignPatterns/template.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+
+      <video width="500" height="255" controls>
+      <source src="video/DesignPatterns/decorator.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+
+      <video width="500" height="255" controls>
+      <source src="video/DesignPatterns/iterator.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+
+      <video width="500" height="255" controls>
+      <source src="video/DesignPatterns/observer.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </span>
+</section>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- importar script.js file -->
+
+</body>
+
+</html>

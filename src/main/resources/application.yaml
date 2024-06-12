@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: PracticasAplicacion
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/practicas
+    driver-class-name: org.postgresql.Driver
+    username: ${PSQL_USER}
+    password: ${PSQL_PASS}
+    hikari:
+      schema: public
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        format_sql: true
+
+
+debug: true
+

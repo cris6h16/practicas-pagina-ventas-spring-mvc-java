@@ -1,0 +1,63 @@
+body {
+    background-color: #f8f9fa;
+}
+
+
+.navbar {
+    background-color: #4a6a48;
+}
+.in-left-side .input-in-nav {
+    width: 300px; /* Ancho del primer input */
+}
+
+.in-right-side .input-in-nav-2,
+.in-right-side .input-in-nav-3 {
+    width: 100px; /* Ancho de los inputs de la derecha */
+}
+/*.v1{*/
+/*    background-color: red;*/
+/*}*/
+
+.logo-user {
+    max-width: 2rem;
+    max-height: 2rem;
+    border-radius: 50%;
+    display: block;
+    cursor: pointer;
+}
+
+.input-in-nav-3 {
+    border-radius: 100%;
+    max-width: 2rem;
+    max-height: 2rem;
+}
+
+
+header {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+header img {
+    max-width: 80%;
+    height: auto;
+}
+
+header p {
+    font-size: 1.25rem;
+}
+
+section {
+    background-color: #ffffff;
+}
+
+section h2 {
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+section img {
+    max-width: 50px;
+    height: auto;
+}
