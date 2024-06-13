@@ -1,0 +1,1 @@
+INSERT INTO banner_imagenes (id, url, categoria) VALUES (99999999, 'https://img.gadgethacks.com/img/42/06/63841773513519/0/best-smartphones-buy-2024.1280x600.jpg', 'CELULARES');

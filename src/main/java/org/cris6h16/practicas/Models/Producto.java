@@ -10,10 +10,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "productos",
-        uniqueConstraints = {
-                @UniqueConstraint(columnNames = "cedula", name = "cedula_unique")
-        })
+@Table(name = "productos")
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
