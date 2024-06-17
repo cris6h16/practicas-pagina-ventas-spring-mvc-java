@@ -1,0 +1,110 @@
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header text-center">
+                <h4>CRear cuenta</h4>
+            </div>
+            <div class="card-body">
+                <form method="post"
+                      role="form"
+                      th:action="@{/register/save}"
+                      th:object="${crear_dto}">
+
+                    <div class="mb-3">
+                        <label for="nombres" class="form-label">Nombres</label>
+
+                        <input type="text"
+                               class="form-control"
+                               id="nombres"
+                               th:field="*{nombres}"
+                               required>
+
+                        <p th:errors="*{nombres}" class="text-danger"
+                           th:if="${#fields.hasErrors('nombres')}">
+                        </p>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="apellidos" class="form-label">Apellidos</label>
+                        <input
+                                type="text"
+                                class="form-control"
+                                id="apellidos"
+                                th:field="*{apellidos}"
+                                required>
+                        <p th:errors="*{apellidos}" class="text-danger"
+                           th:if="${#fields.hasErrors('apellidos')}"></p>
+                    </div>
+
+                    <!--                        numero -->
+                    <div class="mb-3">
+                        <label for="numero" class="form-label">Numero de celular</label>
+                        <input
+                                type="text"
+                                class="form-control"
+                                id="numero"
+                                th:field="*{numero}"
+                                required>
+                        <p th:errors="*{numero}" class="text-danger"
+                           th:if="${#fields.hasErrors('numero')}"></p>
+                    </div>
+
+
+                    <!--                            cedula-->
+                    <div class="mb-3">
+                        <label for="cedula" class="form-label">Cedula</label>
+                        <input
+                                type="text"
+                                class="form-control"
+                                id="cedula"
+                                th:field="*{cedula}"
+                                required>
+                        <p th:errors="*{cedula}" class="text-danger"
+                           th:if="${#fields.hasErrors('cedula')}"></p>
+                    </div>
+
+                    <!--                            direccion-->
+                    <div class="mb-3">
+                        <label for="direccion" class="form-label">Direccion</label>
+                        <input
+                                type="text"
+                                class="form-control"
+                                id="direccion"
+                                th:field="*{direccion}"
+                                required>
+                        <p th:errors="*{direccion}" class="text-danger"
+                           th:if="${#fields.hasErrors('direccion')}"></p>
+                    </div>
+
+                    <!--                            correo-->
+                    <div class="mb-3">
+                        <label for="correo" class="form-label">Correo</label>
+                        <input
+                                type="text"
+                                class="form-control"
+                                id="correo"
+                                th:field="*{correo}"
+                                required>
+                        <p th:errors="*{correo}" class="text-danger"
+                           th:if="${#fields.hasErrors('correo')}"></p>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="contrasena" class="form-label">Contrasena</label>
+                        <input type="password"
+                               class="form-control"
+                               id="contrasena"
+                               th:field="*{contrasena}"
+                               required>
+                        <p th:errors="*{contrasena}" class="text-danger"
+                           th:if="${#fields.hasErrors('contrasena')}"></p>
+                    </div>
+                    <button class="btn btn-primary" type="submit">Regsitrase</button>
+                </form>
+            </div>
+            <div class="card-footer text-center">
+                <small>Tienes ya una cuenta? <a th:href="@{/login}">Login</a></small>
+            </div>
+        </div>
+    </div>
+</div>

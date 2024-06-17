@@ -1,5 +1,6 @@
 package org.cris6h16.practicas.Controllers;
 
+import org.cris6h16.practicas.DTOs.CrearUsuarioDTO;
 import org.cris6h16.practicas.Models.ECategorias;
 import org.cris6h16.practicas.Models.RedesContacto;
 import org.cris6h16.practicas.Service.BannerImagenesServicioImpl;
@@ -40,5 +41,18 @@ public class PrincipalController {
         return "login";
     }
 
+//    @GetMapping("/register")
+//    @PreAuthorize("permitAll()")
+//    public String register(Model model) {
+//        List<RedesContacto> redesContacto = this.redesContactoService.obtenerTodo();
+//        model.addAttribute("redes_contactos", redesContacto );
+//        return "register";
+//    }
+
+    @GetMapping("/register")
+    public String register(Model model){
+        model.addAttribute("crear_dto", new CrearUsuarioDTO());
+        return "register";
+    }
 
 }
