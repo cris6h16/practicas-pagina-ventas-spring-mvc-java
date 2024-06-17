@@ -1,0 +1,10 @@
+.navbar-nav .nav-link {
+    color: white !important;
+}
+.navbar {
+    background-color: #000000;
+}
+
+.search-bar {
+    width: 400px;
+}

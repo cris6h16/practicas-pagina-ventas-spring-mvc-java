@@ -4,5 +4,6 @@ public enum ERedesContacto {
     GITHUB,
     LINKEDIN,
     FACEBOOK,
+    X,
     YOUTUBE
 }
