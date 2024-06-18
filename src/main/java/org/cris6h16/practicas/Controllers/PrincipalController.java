@@ -50,7 +50,10 @@ public class PrincipalController {
 //    }
 
     @GetMapping("/register")
-    public String register(Model model){
+    @PreAuthorize("permitAll()")
+    public String register(Model model) {
+        List<RedesContacto> redesContacto = this.redesContactoService.obtenerTodo();
+        model.addAttribute("redes_contactos", redesContacto );
         model.addAttribute("crear_dto", new CrearUsuarioDTO());
         return "register";
     }

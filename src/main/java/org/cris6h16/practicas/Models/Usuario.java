@@ -41,7 +41,7 @@ public class Usuario {
     private String apellidos;
 
     @NotBlank(message = "numero no puede estar en blanco")
-    @Size(max = 13, message = "El numero de telefono debe tener maximo 13 caracteres")
+    @Size(min = 10, max = 10, message = "El numero de telefono debe tener 10 caracteres")
     private String numero;
 
     @NotBlank(message = "cedula no puede estar en blanco")

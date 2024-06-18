@@ -1,7 +1,7 @@
 <div class="row justify-content-center">
     <div class="col-md-6">
-        <div class="card">
-            <div class="card-header text-center">
+        <div class="card  text-white bg-dark mb-3">
+            <div class="card-header text-center ">
                 <h4>CRear cuenta</h4>
             </div>
             <div class="card-body">
@@ -14,7 +14,7 @@
                         <label for="nombres" class="form-label">Nombres</label>
 
                         <input type="text"
-                               class="form-control"
+                               class="form-control  bg-dark text-white"
                                id="nombres"
                                th:field="*{nombres}"
                                required>
@@ -28,7 +28,7 @@
                         <label for="apellidos" class="form-label">Apellidos</label>
                         <input
                                 type="text"
-                                class="form-control"
+                                class="form-control  bg-dark text-white"
                                 id="apellidos"
                                 th:field="*{apellidos}"
                                 required>
@@ -41,7 +41,7 @@
                         <label for="numero" class="form-label">Numero de celular</label>
                         <input
                                 type="text"
-                                class="form-control"
+                                class="form-control  bg-dark text-white"
                                 id="numero"
                                 th:field="*{numero}"
                                 required>
@@ -55,7 +55,7 @@
                         <label for="cedula" class="form-label">Cedula</label>
                         <input
                                 type="text"
-                                class="form-control"
+                                class="form-control  bg-dark text-white"
                                 id="cedula"
                                 th:field="*{cedula}"
                                 required>
@@ -68,7 +68,7 @@
                         <label for="direccion" class="form-label">Direccion</label>
                         <input
                                 type="text"
-                                class="form-control"
+                                class="form-control bg-dark text-white"
                                 id="direccion"
                                 th:field="*{direccion}"
                                 required>
@@ -80,8 +80,8 @@
                     <div class="mb-3">
                         <label for="correo" class="form-label">Correo</label>
                         <input
-                                type="text"
-                                class="form-control"
+                                type="email"
+                                class="form-control bg-dark text-white"
                                 id="correo"
                                 th:field="*{correo}"
                                 required>
@@ -92,14 +92,16 @@
                     <div class="mb-3">
                         <label for="contrasena" class="form-label">Contrasena</label>
                         <input type="password"
-                               class="form-control"
+                               class="form-control bg-dark text-white"
                                id="contrasena"
                                th:field="*{contrasena}"
                                required>
                         <p th:errors="*{contrasena}" class="text-danger"
                            th:if="${#fields.hasErrors('contrasena')}"></p>
                     </div>
-                    <button class="btn btn-primary" type="submit">Regsitrase</button>
+                    <div class="d-grid  col-6 mx-auto mt-5">
+                        <button class="btn btn-primary w-100" type="submit">Regsitrase</button>
+                    </div>
                 </form>
             </div>
             <div class="card-footer text-center">

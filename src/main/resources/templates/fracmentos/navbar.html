@@ -1,6 +1,3 @@
-<link rel="stylesheet" href="navbar.css.css">
-
-
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
         <!-- <a class="navbar-brand" href="#">Logo</a> -->
@@ -30,9 +27,15 @@
                     </div>
                 </div>
             </form>
-            <form th:action="@{/login}" th:method="get" class="form-inline my-2 my-lg-0">
+            <form th:unless="${#authorization.expression('isAuthenticated()')}"
+                  th:action="@{/login}" th:method="get" class="form-inline my-2 my-lg-0">
                 <button class="btn btn-outline-light">Login</button>
             </form>
+            <form th:if="${#authorization.expression('isAuthenticated()')}"
+                  th:action="@{/profile}" th:method="get" class="form-inline my-2 my-lg-0">
+                <button class="btn btn-outline-light">Perfil</button>
+            </form>
+
         </div>
     </div>
 </nav>

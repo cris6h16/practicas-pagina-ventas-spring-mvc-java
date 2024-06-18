@@ -1,3 +1,14 @@
 .carousel-item img {
     height: 400px;
 }
+
+body {
+    background-color: #2d2d2d;
+    color: white;
+    min-height: 80vh;
+}
+.container-content {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}

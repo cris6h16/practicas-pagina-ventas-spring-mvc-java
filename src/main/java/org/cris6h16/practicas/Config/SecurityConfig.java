@@ -1,6 +1,7 @@
 package org.cris6h16.practicas.Config;
 
-//import org.cris6h16.practicas.Repository.UserRepository;
+//import org.cris6h16.practicas.Repository.UsuarioRepositorio;
+import org.cris6h16.practicas.Repository.UsuarioRepositorio;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
@@ -22,8 +23,8 @@ public class SecurityConfig {
                 .formLogin(c -> c
                                 .loginPage("/login")
                                 .loginProcessingUrl("/login")
-                                .defaultSuccessUrl("/?logged-in", true)
-                                .usernameParameter("username")
+                                .defaultSuccessUrl("/", true)
+                                .usernameParameter("cedula")
                                 .passwordParameter("password")
                                 .failureUrl("/login?error")
 //                        .permitAll()
@@ -31,10 +32,10 @@ public class SecurityConfig {
         return http.build();
     }
 
-//    @Bean
-//    public UserDetailsService userDetailsService(UserRepository u) {
-//        return new CustomUserDetails(u);
-//    }
+    @Bean
+    public UserDetailsService userDetailsService(UsuarioRepositorio u) {
+        return new CustomUserDetails(u);
+    }
 
     @Bean
     public PasswordEncoder passwordEncoder() {
