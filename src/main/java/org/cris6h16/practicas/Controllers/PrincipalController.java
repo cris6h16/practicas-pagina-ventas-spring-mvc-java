@@ -3,24 +3,30 @@ package org.cris6h16.practicas.Controllers;
 import org.cris6h16.practicas.DTOs.CrearUsuarioDTO;
 import org.cris6h16.practicas.Models.ECategorias;
 import org.cris6h16.practicas.Models.RedesContacto;
+import org.cris6h16.practicas.Models.Usuario;
 import org.cris6h16.practicas.Service.BannerImagenesServicioImpl;
 import org.cris6h16.practicas.Service.RedesContactoServiceImpl;
+import org.cris6h16.practicas.Service.UsuarioServicioImpl;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class PrincipalController {
 
+    private final UsuarioServicioImpl usuarioServicioImpl;
     private BannerImagenesServicioImpl bannerImagenesServicio;
     private RedesContactoServiceImpl redesContactoService;
 
-    public PrincipalController(BannerImagenesServicioImpl b, RedesContactoServiceImpl r) {
+    public PrincipalController(BannerImagenesServicioImpl b, RedesContactoServiceImpl r, UsuarioServicioImpl usuarioServicioImpl) {
         this.bannerImagenesServicio = b;
         this.redesContactoService = r;
+        this.usuarioServicioImpl = usuarioServicioImpl;
     }
 
     @GetMapping
@@ -29,7 +35,7 @@ public class PrincipalController {
         List<String> bannerCelulares = bannerImagenesServicio.findByCategoria(ECategorias.CELULARES);
         List<RedesContacto> redesContacto = this.redesContactoService.obtenerTodo();
         model.addAttribute("banner_celulares", bannerCelulares);
-        model.addAttribute("redes_contactos", redesContacto );
+        model.addAttribute("redes_contactos", redesContacto);
         return "home";
     }
 
@@ -37,25 +43,29 @@ public class PrincipalController {
     @PreAuthorize("permitAll()")
     public String login(Model model) {
         List<RedesContacto> redesContacto = this.redesContactoService.obtenerTodo();
-        model.addAttribute("redes_contactos", redesContacto );
+        model.addAttribute("redes_contactos", redesContacto);
         return "login";
     }
-
-//    @GetMapping("/register")
-//    @PreAuthorize("permitAll()")
-//    public String register(Model model) {
-//        List<RedesContacto> redesContacto = this.redesContactoService.obtenerTodo();
-//        model.addAttribute("redes_contactos", redesContacto );
-//        return "register";
-//    }
 
     @GetMapping("/register")
     @PreAuthorize("permitAll()")
     public String register(Model model) {
         List<RedesContacto> redesContacto = this.redesContactoService.obtenerTodo();
-        model.addAttribute("redes_contactos", redesContacto );
+        model.addAttribute("redes_contactos", redesContacto);
         model.addAttribute("crear_dto", new CrearUsuarioDTO());
         return "register";
     }
+
+    @GetMapping("/profile")
+    @PreAuthorize("permitAll()")
+    public String profile(Model model, Authentication authentication) {
+        List<RedesContacto> redesContacto = this.redesContactoService.obtenerTodo();
+        Optional<Usuario> usr = usuarioServicioImpl.getByCedula(authentication.getName());
+        if (usr.isEmpty()) return "redirect:/login?error";
+        model.addAttribute("redes_contactos", redesContacto);
+        model.addAttribute("usuario", usr.get());
+        return "profile";
+    }
+
 
 }

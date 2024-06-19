@@ -11,6 +11,8 @@ import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.Optional;
+
 @Service
 public class UsuarioServicioImpl implements UsuarioServicio {
     private final PasswordEncoder passwordEncoder;
@@ -62,7 +64,8 @@ public class UsuarioServicioImpl implements UsuarioServicio {
         dto.setDireccion(dto.getDireccion().toLowerCase().trim());
         dto.setNombres(dto.getNombres().toLowerCase().trim());
 
-        if (dto.getContrasena().length() < 8) throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "La contraseña debe tener al menos 8 caracteres");
+        if (dto.getContrasena().length() < 8)
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "La contraseña debe tener al menos 8 caracteres");
 
         usuarioRepositorio.save(Usuario.builder()
                 .nombres(dto.getNombres())
@@ -73,5 +76,14 @@ public class UsuarioServicioImpl implements UsuarioServicio {
                 .direccion(dto.getDireccion())
                 .numero(dto.getNumero())
                 .build());
+    }
+
+    @Transactional(
+            rollbackFor = Exception.class,
+            isolation = Isolation.READ_UNCOMMITTED
+    )
+    @Override
+    public Optional<Usuario> getByCedula(String cedula) {
+        return usuarioRepositorio.findByCedula(cedula);
     }
 }
