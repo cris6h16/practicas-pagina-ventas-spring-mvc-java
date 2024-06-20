@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perfil</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link th:href="@{/bootstrap/style.css}" rel="stylesheet"/>
     <link th:href="@{/fracmentos/footer.css}" rel="stylesheet"/>
     <link th:href="@{/fracmentos/footer.css}" rel="stylesheet"/>
     <style>
@@ -18,7 +18,16 @@
         .container-content {
             display: flex;
             flex-direction: column;
-            min-height: 100vh;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .card-title {
+            font-size: 1.6em;
+        }
+
+        .card-text {
+            font-size: 1.4em;
         }
     </style>
 </head>
@@ -26,37 +35,49 @@
 
 <nav th:insert="fracmentos/navbar.html :: nav"></nav>
 <div class="container mt-5 container-content">
-    div
-    <div class="row">
-        <div class="col-md-6">
-            <h1>Perfil</h1>
-            <p>Nombre: <span th:text="${usuario.nombre}"></span></p>
-            <p>Apellido: <span th:text="${usuario.apellido}"></span></p>
-            <p>Email: <span th:text="${usuario.email}"></span></p>
-            <p>Username: <span th:text="${usuario.username}"></span></p>
-            <p>Fecha de nacimiento: <span th:text="${usuario.fechaNacimiento}"></span></p>
-            <p>Fecha de creación: <span th:text="${usuario.fechaCreacion}"></span></p>
-        </div>
-        <div class="col-md-6">
-            <h1>Editar perfil</h1>
-            <form th:action="@{/profile}" th:object="${usuario}" method="post">
-                <div class="form-group">
-                    <label for="nombre">Nombre</label>
-                    <input type="text" class="form-control" id="nombre" th:field="*{nombre}">
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+            <div class="card bg-dark text-white">
+                <div class="row"><div class="col-md-4 d-flex align-items-center justify-content-center" style="min-height: 15rem">
+                    <img th:if="${usuario.foto != null and usuario.foto.url != null}"
+                         th:src="${usuario.foto.url}"
+                         class="card-img-top"
+                         alt="Profile Picture"
+                    >
+                    <form
+                            th:if="${usuario.foto == null or usuario.foto.url == null}"
+                            th:action="@{/profile/foto}"
+                            th:method="post"
+                            style="background-color:#171a1d ;min-height: 100%; min-width: 100%; align-content: center"
+                            th:object="${fotoDTO}"
+                    >
+                        <input
+                                type="url"
+                                placeholder="url de su foto de perfil"
+                                th:field="*{url}"
+                        >
+                        <button type="submit" class="btn-primary  btn-sm">Guardar</button>
+                    </form>
                 </div>
-                <div class="form-group mt-2">
-                    <label for="apellido">Apellido</label>
-                    <input type="text" class="form-control" id="apellido" th:field="*{apellido}">
+                    <div class="col-md-8 card-body bg-dark text-white">
+                        <h5 class="card-title mb-4" th:text="${usuario.nombres + ' ' + usuario.apellidos}"></h5>
+                        <p class="card-text">
+                            <strong>Correo:</strong> <span th:text="${usuario.correo}"></span> <br>
+                            <strong>Celular:</strong> <span th:text="${usuario.numero}"></span> <br>
+                            <strong>Cedula:</strong> <span th:text="${usuario.cedula}"></span> <br>
+                            <strong>Direccion:</strong> <span th:text="${usuario.direccion}"></span> <br>
+                        </p>
+                    </div>
                 </div>
-            </form>
-
+            </div>
         </div>
     </div>
 </div>
 <footer th:insert="fracmentos/footer.html :: footer"></footer>
 
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script th:src="@{/bootstrap/script.js}"></script>
 </script>
 </body>
 </html>

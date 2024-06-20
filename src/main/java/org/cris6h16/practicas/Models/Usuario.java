@@ -75,7 +75,10 @@ public class Usuario {
             optional = true,
             orphanRemoval = true
     )
-    @JoinColumn(name = "foto_id", foreignKey = @ForeignKey(name = "fk_usuario_foto_id"))
+    @JoinColumn(
+            name = "foto_id",
+            foreignKey = @ForeignKey(name = "fk_usuario_foto_id")
+    )
     private Foto foto;
 
     @OneToMany(

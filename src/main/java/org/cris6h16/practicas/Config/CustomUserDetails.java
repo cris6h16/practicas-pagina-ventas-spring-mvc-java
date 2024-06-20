@@ -21,10 +21,11 @@ public class CustomUserDetails implements UserDetailsService {
         Usuario userEntity = usuarioRepositorio.findByCedula(cedula)
                 .orElseThrow(() -> new UsernameNotFoundException("User not found"));
 
+
         return User.builder()
                 .username(userEntity.getCedula())
                 .password(userEntity.getContrasena())
-                .authorities(new SimpleGrantedAuthority("USER"))
+                .authorities(new SimpleGrantedAuthority("ROLE_".concat(userEntity.getRol().getNombre().toString())))
                 .build();
     }
 

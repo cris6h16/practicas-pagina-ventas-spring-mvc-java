@@ -1,1 +1,4 @@
-INSERT INTO banner_imagenes (id, url, categoria) VALUES (99999999, 'https://img.gadgethacks.com/img/42/06/63841773513519/0/best-smartphones-buy-2024.1280x600.jpg', 'CELULARES');
+-- BEGIN TRANSACTION ISOLATION LEVEL READ COMMITTED;
+-- INSERT INTO roles(id, nombre) VALUES (999, 'USER');
+-- INSERT INTO usuarios(id, foto_id, roles_id, cedula, numero, apellidos, nombres, contrasena, correo, direccion) VALUES (100, null, 999, '1550212508', '0960279073', 'Herrera Guallo', 'Cristian Manuel', '{noop}12345678', 'cristianmherrera21@gmail.com', 'Arosemena Tola, Napo, Ecuador');
+-- COMMIT;

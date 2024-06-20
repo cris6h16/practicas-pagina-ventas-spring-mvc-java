@@ -1,7 +1,10 @@
 package org.cris6h16.practicas.Service;
 
 import org.cris6h16.practicas.DTOs.CrearUsuarioDTO;
+import org.cris6h16.practicas.Models.ERoles;
+import org.cris6h16.practicas.Models.Rol;
 import org.cris6h16.practicas.Models.Usuario;
+import org.cris6h16.practicas.Repository.RolRepositorio;
 import org.cris6h16.practicas.Repository.UsuarioRepositorio;
 import org.cris6h16.practicas.Service.Interfaces.UsuarioServicio;
 import org.springframework.http.HttpStatus;
@@ -17,10 +20,12 @@ import java.util.Optional;
 public class UsuarioServicioImpl implements UsuarioServicio {
     private final PasswordEncoder passwordEncoder;
     private UsuarioRepositorio usuarioRepositorio;
+    private RolRepositorio rolRepositorio;
 
-    public UsuarioServicioImpl(UsuarioRepositorio usuarioRepositorio, PasswordEncoder passwordEncoder) {
-        this.usuarioRepositorio = usuarioRepositorio;
+    public UsuarioServicioImpl(PasswordEncoder passwordEncoder, UsuarioRepositorio usuarioRepositorio, RolRepositorio rolRepositorio) {
         this.passwordEncoder = passwordEncoder;
+        this.usuarioRepositorio = usuarioRepositorio;
+        this.rolRepositorio = rolRepositorio;
     }
 
     @Transactional(
@@ -75,6 +80,7 @@ public class UsuarioServicioImpl implements UsuarioServicio {
                 .correo(dto.getCorreo())
                 .direccion(dto.getDireccion())
                 .numero(dto.getNumero())
+                .rol((Rol) rolRepositorio.findByNombre(ERoles.USER).orElse(Rol.builder().nombre(ERoles.USER).build()))
                 .build());
     }
 

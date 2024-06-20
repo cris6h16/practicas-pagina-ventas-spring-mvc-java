@@ -22,15 +22,14 @@ public class Foto {
     private Long id;
 
     @NotBlank(message = "La url no puede estar vacía")
+    @Column(columnDefinition = "TEXT")
     private String url;
 
 
     @OneToOne(
             fetch = FetchType.LAZY,
             cascade = {
-                    CascadeType.PERSIST,
-                    CascadeType.MERGE,
-                    CascadeType.REFRESH
+                    CascadeType.PERSIST
             },
             targetEntity = Usuario.class,
             optional = true,

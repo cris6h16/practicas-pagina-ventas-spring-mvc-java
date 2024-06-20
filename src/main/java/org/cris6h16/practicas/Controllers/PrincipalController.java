@@ -1,5 +1,6 @@
 package org.cris6h16.practicas.Controllers;
 
+import org.cris6h16.practicas.DTOs.CrearFotoDTO;
 import org.cris6h16.practicas.DTOs.CrearUsuarioDTO;
 import org.cris6h16.practicas.Models.ECategorias;
 import org.cris6h16.practicas.Models.RedesContacto;
@@ -9,10 +10,12 @@ import org.cris6h16.practicas.Service.RedesContactoServiceImpl;
 import org.cris6h16.practicas.Service.UsuarioServicioImpl;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import java.security.Principal;
 import java.util.List;
 import java.util.Optional;
 
@@ -59,11 +62,17 @@ public class PrincipalController {
     @GetMapping("/profile")
     @PreAuthorize("permitAll()")
     public String profile(Model model, Authentication authentication) {
-        List<RedesContacto> redesContacto = this.redesContactoService.obtenerTodo();
-        Optional<Usuario> usr = usuarioServicioImpl.getByCedula(authentication.getName());
+        if (authentication == null) return "redirect:/login?error";
+        User user = (User) authentication.getPrincipal();
+
+        Optional<Usuario> usr = usuarioServicioImpl.getByCedula(user.getUsername());
         if (usr.isEmpty()) return "redirect:/login?error";
+
+        List<RedesContacto> redesContacto = this.redesContactoService.obtenerTodo();
+
         model.addAttribute("redes_contactos", redesContacto);
         model.addAttribute("usuario", usr.get());
+        model.addAttribute("fotoDTO", new CrearFotoDTO());
         return "profile";
     }
 
