@@ -1,10 +1,12 @@
 .navbar-nav .nav-link {
     color: white !important;
 }
-.navbar {
-    background-color: #000000;
-}
 
 .search-bar {
-    width: 400px;
+    width: 20rem
+}
+
+.png-search-input{
+    width: 1rem;
+    height: 1rem;
 }

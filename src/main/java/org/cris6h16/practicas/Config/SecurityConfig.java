@@ -20,6 +20,10 @@ public class SecurityConfig {
     @Bean
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
+                .logout(l -> l
+                        .logoutUrl("/logout")
+                        .logoutSuccessUrl("/?loggedOut")
+                )
                 .formLogin(c -> c
                                 .loginPage("/login")
                                 .loginProcessingUrl("/login")

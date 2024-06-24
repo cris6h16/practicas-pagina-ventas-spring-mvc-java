@@ -1,0 +1,44 @@
+<div class="row justify-content-center w-100">
+  <div class="col-md-12">
+    <div class="card bg-dark text-white">
+      <div class="row">
+        <div class="col-md-4 d-flex align-items-center justify-content-center" style="min-height: 15rem">
+          <img th:if="${usuario.foto != null and usuario.foto.url != null}"
+               th:src="${usuario.foto.url}"
+               class="card-img-top"
+               alt="Profile Picture"
+          >
+          <form
+                  th:if="${usuario.foto == null or usuario.foto.url == null}"
+                  th:action="@{/profile/foto}"
+                  th:method="post"
+                  style="background-color:#171a1d ;min-height: 100%; min-width: 100%; align-content: center"
+                  th:object="${fotoDTO}"
+          >
+            <input
+                    type="url"
+                    placeholder="url de su foto de perfil"
+                    th:field="*{url}"
+            >
+            <button type="submit" class="btn-primary  btn-sm">Guardar</button>
+          </form>
+        </div>
+        <div class="col-md-5 card-body bg-dark text-white ms-1 text-left">
+          <h5 class="card-title mb-4"
+              th:text="${usuario.nombres.toUpperCase() + ' ' + usuario.apellidos.toUpperCase()}"></h5>
+          <p class="card-text">
+            <strong>Correo:</strong> <span th:text="${usuario.correo}"></span> <br>
+            <strong>Celular:</strong> <span th:text="${usuario.numero}"></span> <br>
+            <strong>Cedula:</strong> <span th:text="${usuario.cedula}"></span> <br>
+            <strong>Direccion:</strong> <span th:text="${usuario.direccion}"></span> <br>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="text-center mt-4">
+      <form th:action="@{/logout}" method="post">
+        <button type="submit" class="btn btn-danger">Cerrar Session</button>
+      </form>
+    </div>
+  </div>
+</div>

@@ -8,6 +8,19 @@
     <link th:href="@{/bootstrap/style.css}" rel="stylesheet"/>
     <link th:href="@{/fracmentos/footer.css}" rel="stylesheet"/>
     <link th:href="@{/fracmentos/home/carousel.css}" rel="stylesheet"/>
+    <link th:href="@{/fracmentos/navbar.css}" rel="stylesheet"/>
+    <style>
+        body {
+            background-color: #2d2d2d;
+            color: white;
+            min-height: 80vh;
+        }
+        .container-content {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+    </style>
 </head>
 <body>
 
@@ -22,6 +35,13 @@
 <footer th:insert="fracmentos/footer.html :: footer"></footer>
 
 
+<div th:insert="fracmentos/Home/logout_successful_modal.html :: div"></div>
+<script th:if="${param.loggedOut}"> <!-- Mostrar si ?logged-out -->
+document.addEventListener('DOMContentLoaded', function () {
+    var errorModal = new bootstrap.Modal(document.getElementById('loggedOut'));
+    errorModal.show();
+});
+</script>
 
 <script th:src="@{/bootstrap/script.js}"></script>
 </body>
