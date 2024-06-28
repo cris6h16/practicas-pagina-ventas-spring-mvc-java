@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos</title>
+    <link th:href="@{/bootstrap/style.css}" rel="stylesheet"/>
+    <link th:href="@{/fracmentos/footer.css}" rel="stylesheet"/>
+    <link th:href="@{/fracmentos/navbar.css}" rel="stylesheet"/>
+    <style>
+        body {
+            background-color: #2d2d2d;
+            color: white;
+            min-height: 80vh;
+        }
+
+        .container-content {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .bg-weak-white {
+            background-color: #ebebeb;
+            color: black;
+        }
+
+
+    </style>
+</head>
+<body>
+
+
+<nav th:insert="fracmentos/navbar.html :: nav"></nav>
+<div class="container mt-5 container-content ">
+    <div class="row bg-dark pt-3 pb-4">
+        <div class="col-6">
+            <h5 class="text-left">CATEGORIAS</h5>
+            <div class="list-group">
+                <a href="#" class="list-group-item list-group-item-action bg-weak-white text-center">Categoria 1</a>
+                <a href="#" class="list-group-item list-group-item-action bg-weak-white text-center">Categoria 2</a>
+                <a href="#" class="list-group-item list-group-item-action bg-weak-white text-center">Categoria 3</a>
+                <a href="#" class="list-group-item list-group-item-action bg-weak-white text-center">Categoria 4</a>
+                <a href="#" class="list-group-item list-group-item-action bg-weak-white text-center">Categoria 5</a>
+            </div>
+        </div>
+        <div class="col-6">
+            <h5 class="text-left">FILTROS</h5>
+            <form>
+                <div class="mb-3">
+                    <label for="sort" class="form-label">Sort by price:</label>
+                    <select id="sort" name="sort" class="form-select bg-weak-white">
+                        <option value="asc">Lowest first</option>
+                        <option value="desc">Highest first</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="results" class="form-label">Results per page:</label>
+                    <select id="results" name="results" class="form-select bg-weak-white">
+                        <option value="10">10</option>
+                        <option value="20">20</option>
+                        <option value="50">50</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Apply filters</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="row bg-transparent pt-3 pb-4 text-center align-items-center">
+        <a class="btn btn-success col-3 align-self-center mx-auto d-block"
+           th:href="@{/products/add}">
+            AGREGAR PRODUCTOS
+        </a>
+    </div>
+
+    <div class="row bg-dark pt-3 pb-4">
+        <div class=" col-6 col-sm-6 col-md-6 col-lg-3 mt-4">
+            <div class="card bg-weak-white">
+                <img src="https://novicompu.vtexassets.com/arquivos/ids/169011-500-auto?v=638428545058300000&width=500&height=auto&aspect=true"
+                     class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Producto 1</h5>
+                    <p class="card-text text-center">Precio: $100</p>
+                    <p class="card-text text-center"><small class="text-muted">Stock: 10</small></p>
+                    <a href="#" class="btn btn-primary w-100">Agregar al carrito</a>
+
+                </div>
+            </div>
+        </div>
+
+        <div class=" col-6 col-sm-6 col-md-6 col-lg-3 mt-4">
+            <div class="card bg-weak-white">
+                <img src="https://novicompu.vtexassets.com/arquivos/ids/169011-500-auto?v=638428545058300000&width=500&height=auto&aspect=true"
+                     class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Producto 1</h5>
+                    <p class="card-text text-center">Precio: $100</p>
+                    <p class="card-text text-center"><small class="text-muted">Stock: 10</small></p>
+                    <a href="#" class="btn btn-primary w-100">Agregar al carrito</a>
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class=" col-6 col-sm-6 col-md-6 col-lg-3 mt-4">
+            <div class="card bg-weak-white">
+                <img src="https://novicompu.vtexassets.com/arquivos/ids/169011-500-auto?v=638428545058300000&width=500&height=auto&aspect=true"
+                     class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Producto 1</h5>
+                    <p class="card-text text-center">Precio: $100</p>
+                    <p class="card-text text-center"><small class="text-muted">Stock: 10</small></p>
+                    <a href="#" class="btn btn-primary w-100">Agregar al carrito</a>
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class=" col-6 col-sm-6 col-md-6 col-lg-3 mt-4">
+            <div class="card bg-weak-white">
+                <img src="https://novicompu.vtexassets.com/arquivos/ids/169011-500-auto?v=638428545058300000&width=500&height=auto&aspect=true"
+                     class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Producto 1</h5>
+                    <p class="card-text text-center">Precio: $100</p>
+                    <p class="card-text text-center"><small class="text-muted">Stock: 10</small></p>
+                    <a href="#" class="btn btn-primary w-100">Agregar al carrito</a>
+
+                </div>
+            </div>
+        </div>
+
+        <div class=" col-6 col-sm-6 col-md-6 col-lg-3 mt-4">
+            <div class="card bg-weak-white">
+                <img src="https://novicompu.vtexassets.com/arquivos/ids/169011-500-auto?v=638428545058300000&width=500&height=auto&aspect=true"
+                     class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Producto 1</h5>
+                    <p class="card-text text-center">Precio: $100</p>
+                    <p class="card-text text-center"><small class="text-muted">Stock: 10</small></p>
+                    <a href="#" class="btn btn-primary w-100">Agregar al carrito</a>
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class=" col-6 col-sm-6 col-md-6 col-lg-3 mt-4">
+            <div class="card border border-dark bg-weak-white">
+                <img src="https://novicompu.vtexassets.com/arquivos/ids/169011-500-auto?v=638428545058300000&width=500&height=auto&aspect=true"
+                     class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Producto 1</h5>
+                    <p class="card-text text-center">Precio: $100</p>
+                    <p class="card-text text-center"><small class="text-muted">Stock: 10</small></p>
+                    <a href="#" class="btn btn-primary w-100">Agregar al carrito</a>
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class=" col-6 col-sm-6 col-md-6 col-lg-3 mt-4">
+            <div class="card bg-weak-white">
+                <img src="https://novicompu.vtexassets.com/arquivos/ids/169011-500-auto?v=638428545058300000&width=500&height=auto&aspect=true"
+                     class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Producto 1</h5>
+                    <p class="card-text text-center">Precio: $100</p>
+                    <p class="card-text text-center"><small class="text-muted">Stock: 10</small></p>
+                    <a href="#" class="btn btn-primary w-100">Agregar al carrito</a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<footer th:insert="fracmentos/footer.html :: footer"></footer>
+
+<script th:src="@{/bootstrap/script.js}"></script>
+</body>
+</html>

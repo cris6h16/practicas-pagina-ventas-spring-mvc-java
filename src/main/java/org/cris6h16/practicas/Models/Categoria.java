@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
+import java.util.Set;
+
 @Entity
 @Table(name = "categorias")
 @Builder
@@ -12,7 +14,7 @@ import lombok.*;
 @Getter
 @Setter
 @EqualsAndHashCode
-@ToString
+@ToString(exclude = "productos")
 public class Categoria {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,4 +24,13 @@ public class Categoria {
     @Enumerated(EnumType.STRING)
     @NotNull(message = "El nombre no puede ser nulo")
     private ECategorias nombre;
+
+    @OneToMany(
+            fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL,
+            targetEntity = Producto.class,
+            mappedBy = "categoria",
+            orphanRemoval = false // let the existence of a product without a category
+    )
+    private Set<Producto> productos;
 }

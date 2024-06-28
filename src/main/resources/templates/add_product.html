@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Producto</title>
+    <link th:href="@{/bootstrap/style.css}" rel="stylesheet"/>
+    <link th:href="@{/fracmentos/footer.css}" rel="stylesheet"/>
+    <link th:href="@{/fracmentos/navbar.css}" rel="stylesheet"/>
+    <style>
+        body {
+            background-color: #2d2d2d;
+            color: white;
+            min-height: 80vh;
+        }
+
+        .container-content {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+    </style>
+</head>
+<body>
+
+<nav th:insert="fracmentos/navbar.html :: nav"></nav>
+<div class="container mt-5 container-content">
+
+    <div class="row bg-dark pt-3 pb-4 justify-content-center">
+
+        <div class="col-12 col-sm-12 col-md-10 col-lg-9 mt-4">
+            <h4 class="text-center mb-5 mt-4">AGREGAR PRODUCTO</h4>
+            <form th:action="@{/products/add}" th:method="post">
+                <div class="mb-3">
+                    <label for="nombre" class="form-label">Nombre:</label>
+                    <input type="text" class="form-control" id="nombre" name="nombre" required>
+                </div>
+                <div class="mb-3">
+                    <label for="descripcion" class="form-label">Descripcion:</label>
+                    <!--                    <input type="text" class="form-control" id="descripcion" name="descripcion" required>-->
+                    <textarea style="height: 7rem;" class="form-control" id="descripcion" name="descripcion"
+                              required></textarea>
+                </div>
+                <div class="mb-3 row">
+                    <div class="col">
+                        <label for="precio" class="form-label">Precio:</label>
+                        <input type="number" class="form-control" id="precio" name="precio" required>
+                    </div>
+                    <div class="col">
+                        <label for="stock" class="form-label">Stock:</label>
+                        <input type="number" class="form-control" id="stock" name="stock" required>
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                        <label for="categoria" class="form-label">Categoria:</label>
+
+                        <div class="row mb-3">
+                            <div class="col">
+                                <select id="categoria" name="categoria" class="form-select bg-weak-white">
+                                    <option value="1">Categoria 1</option>
+                                    <option value="2">Categoria 2</option>
+                                    <option value="3">Categoria 3</option>
+                                    <option value="4">Categoria 4</option>
+                                    <option value="5">Categoria 5</option>
+                                </select>
+                            </div>
+                            <div class="col-auto">
+                                <a class="btn btn-secondary" href="#" role="button">Agregar</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                        <label for="urlImagen" class="form-label">URL Imagen:</label>
+                        <div class="row mb-3">
+                            <div class="col">
+                                <input type="text" class="form-control" id="urlImagen" name="urlImagen" required>
+                            </div>
+                            <div class="col-auto">
+                                <button type="submit" class="btn btn-secondary">Mostrar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+
+                    </div>
+                    <div class="row justify-content-center align-items-center mt-4">
+                        <img src="https://ethic.es/wp-content/uploads/2023/03/imagen.jpg" class="col-9 rounded-3"
+                             alt="Imagen Producto">
+                    </div>
+
+                </div>
+
+
+                <div class="mb-3 mt-5 text-center justify-content-center align-items-center ">
+                    <button type="submit" class="btn btn-primary btn-lg w-100">Agregar</button>
+                </div>
+
+            </form>
+        </div>
+
+
+    </div>
+</div>
+<footer th:insert="fracmentos/footer.html :: footer"></footer>
+
+
+<script th:src="@{/bootstrap/script.js}"></script>
+</body>
+</html>

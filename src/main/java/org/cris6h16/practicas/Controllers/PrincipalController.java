@@ -76,5 +76,23 @@ public class PrincipalController {
         return "profile";
     }
 
+    @GetMapping("/products")
+    @PreAuthorize("permitAll()")
+    public String products(Model model) {
+        List<RedesContacto> redesContacto = this.redesContactoService.obtenerTodo();
+        model.addAttribute("redes_contactos", redesContacto);
+        return "products";
+    }
+
+//    agregar producto
+    @GetMapping("/products/add")
+//    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("permitAll()")
+    public String addProduct(Model model) {
+        List<RedesContacto> redesContacto = this.redesContactoService.obtenerTodo();
+        model.addAttribute("redes_contactos", redesContacto);
+        return "add_product";
+    }
+
 
 }
